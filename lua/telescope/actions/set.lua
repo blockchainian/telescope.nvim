@@ -243,7 +243,7 @@ action_set.scroll_previewer = function(prompt_bufnr, direction)
     return
   end
 
-  local default_speed = vim.api.nvim_win_get_height(status.layout.preview.winid) / 2
+  local default_speed = vim.api.nvim_win_get_height(status.layout.preview.winid)
   local speed = status.picker.layout_config.scroll_speed or default_speed
 
   previewer:scroll_fn(math.floor(speed * direction))
@@ -278,7 +278,7 @@ end
 --      Valid directions include: "1", "-1"
 action_set.scroll_results = function(prompt_bufnr, direction)
   local status = state.get_status(prompt_bufnr)
-  local default_speed = vim.api.nvim_win_get_height(status.layout.results.winid) / 2
+  local default_speed = vim.api.nvim_win_get_height(status.layout.results.winid)
   local speed = status.picker.layout_config.scroll_speed or default_speed
 
   local input = direction > 0 and [[]] or [[]]
